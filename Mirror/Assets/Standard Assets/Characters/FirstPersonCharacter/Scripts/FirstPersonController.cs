@@ -43,6 +43,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float toleranceJump;
         private float timeJump;
         private AudioSource m_AudioSource;
+        private bool isSlow;
 
         // Use this for initialization
         private void Start()
@@ -64,6 +65,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (!isSlow)
+                {
+                    Time.timeScale = Mathf.Lerp(Time.timeScale, 0.2f, 0.8f);
+                    Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                    isSlow = true;
+                }
+                else
+                {
+                    Time.timeScale = Mathf.Lerp(Time.timeScale, 1f, 0.8f);
+                    Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                    isSlow = false;
+                }
+            }
+
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
