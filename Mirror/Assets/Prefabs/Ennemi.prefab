@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33070816be309d540b41a7357872c87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Follow: 1
   target: {fileID: 0}
   navAgent: {fileID: 8230002050151031866}
 --- !u!65 &1481831473

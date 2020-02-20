@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Utilities;
 
 public class SpawnManager : MonoBehaviour
@@ -30,6 +31,12 @@ public class SpawnManager : MonoBehaviour
             ennemi.position = spawnsList[indexSpawn].position;
             PlaceToEnd(spawnsList, indexSpawn);
             ennemiSpawned++;
+
+            /*C'EST DEGEUX !!!!!!!!!!!!!!!*/
+            NavMeshAgent tempAgentCompenent = ennemi.GetComponent<NavMeshAgent>();
+            tempAgentCompenent.enabled = false;
+            tempAgentCompenent.enabled = true;
+
         }
     }
 
