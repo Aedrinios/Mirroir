@@ -11,8 +11,7 @@ public class BulletBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletLifeTime -= Time.time;
-
+        bulletLifeTime -= Time.deltaTime;
         if(bulletLifeTime <= 0)
         {
             DestroyBullet();
@@ -23,6 +22,6 @@ public class BulletBehaviour : MonoBehaviour
 
     void DestroyBullet()
     {
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }
