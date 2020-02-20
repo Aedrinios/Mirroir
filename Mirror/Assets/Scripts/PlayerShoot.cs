@@ -6,14 +6,24 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform muzzle;
+    private bool isReloading;
+    [SerializeField] private float reloadTimer;
+    private float timer = 0f;
     // Update is called once per frame
 
     void Update()
     {
-        Debug.Log("i'm here");
-        if (Input.GetButtonDown("Fire1"))
+        if (isReloading)
         {
-            Debug.Log("I shoot");
+            timer += Time.deltaTime;
+            if(timer >= reloadTimer)
+            {
+                timer = 0;
+                isReloading = false;
+            }
+        }
+        if (Input.GetButtonDown("Fire1") && !isReloading)
+        {
             Shoot();
         }
     }
@@ -21,5 +31,6 @@ public class PlayerShoot : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, muzzle.position, Quaternion.LookRotation(transform.right));
+        isReloading = true;
     }
 }
