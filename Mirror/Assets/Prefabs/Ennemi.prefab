@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8230002050151031870}
   - component: {fileID: 8230002050151031866}
   - component: {fileID: 8230002050151031869}
-  - component: {fileID: 8230002050151031809}
   m_Layer: 9
   m_Name: Ennemi
   m_TagString: Untagged
@@ -118,21 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Follow: 1
-  target: {fileID: 0}
-  navAgent: {fileID: 8230002050151031866}
---- !u!114 &8230002050151031809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8230002050151031808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33070816be309d540b41a7357872c87f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Follow: 0
   target: {fileID: 0}
   navAgent: {fileID: 8230002050151031866}
 --- !u!1 &8230002050166138881
