@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5618949771856421286}
   - component: {fileID: 5618949771856421281}
   - component: {fileID: 5618949771856421283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Miror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,4 +97,4 @@ MonoBehaviour:
   m_ClipPlaneOffset: 0.07
   m_ReflectLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
