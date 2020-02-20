@@ -14,10 +14,13 @@ public class PlayerShoot : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private AudioClip shootSound;
     [SerializeField] private AudioClip reloadSound;
+
+    private Animator anim;
     // Update is called once per frame
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -42,6 +45,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
+        anim.SetTrigger("Shoot");
         audioSource.clip = shootSound;
         audioSource.Play();
         Instantiate(bulletPrefab, muzzle.position, Quaternion.LookRotation(transform.right));
