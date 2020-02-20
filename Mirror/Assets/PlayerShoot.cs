@@ -7,10 +7,6 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
 
     // Update is called once per frame
-    private void Start()
-    {
-        transform.LookAt(transform.parent.forward);
-    }
 
     void Update()
     {
@@ -23,6 +19,6 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
+        Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(transform.forward));
     }
 }
