@@ -20,6 +20,15 @@ public class BulletBehaviour : MonoBehaviour
         transform.position +=  transform.forward * Time.deltaTime * bulletSpeed;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("hit");
+            other.GetComponent<HealthSystem>().TakeDamage(bulletDamage);
+        }
+    }
+
     void DestroyBullet()
     {
         Destroy(this.gameObject);
