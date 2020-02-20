@@ -40,11 +40,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+        public float toleranceJump;
+        private float timeJump;
         private AudioSource m_AudioSource;
 
         // Use this for initialization
         private void Start()
         {
+            timeJump = toleranceJump;
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -67,7 +70,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
-
+            if (m_Jump)
+            {
+                timeJump -= Time.deltaTime;
+                if(timeJump <= 0)
+                {
+                    m_Jump = false;
+                    timeJump = toleranceJump;
+                }
+            }
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
                 StartCoroutine(m_JumpBob.DoBobCycle());
